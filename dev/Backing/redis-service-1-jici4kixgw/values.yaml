@@ -1,0 +1,34 @@
+namespace: -@namespace@-
+pvc:
+  name: pvc-redis-service-1-jici4kixgw
+  storageClass: tlc-block-sc
+  size: 5Gi
+  accessMode: ReadWriteOnce
+redis:
+  configmap:
+    name: config-redis-service-1-jici4kixgw
+  statefulset:
+    name: redis-service-1-jici4kixgw
+    replicas: -@replicas@-
+    hpa:
+      name: hpa-redis-service-1-jici4kixgw
+      minReplicas: -@minReplicas@-
+      maxReplicas: -@maxReplicas@-
+      cpu: -@cpuAutoScale@-
+      memory: -@memAutoScale@-
+    port: 6379
+    resource:
+      request:
+        memory: -@requestMemory@-
+        cpu: -@requestCpu@-
+    volume:
+      name: redis-service-1-jici4kixgw
+  service:
+    name: redis-service-1-jici4kixgw
+    port: 6379
+    protocol: 
+  secret:
+    name: secret-redis-service-1-jici4kixgw
+    host: redis-service-1-jici4kixgw
+    port: 6379
+    password: Um9vdDEyMzQh
