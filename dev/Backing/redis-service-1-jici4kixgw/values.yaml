@@ -1,4 +1,4 @@
-namespace: -@namespace@-
+namespace: werwer-dev
 pvc:
   name: pvc-redis-service-1-jici4kixgw
   storageClass: tlc-block-sc
@@ -9,18 +9,18 @@ redis:
     name: config-redis-service-1-jici4kixgw
   statefulset:
     name: redis-service-1-jici4kixgw
-    replicas: -@replicas@-
+    replicas: 1
     hpa:
       name: hpa-redis-service-1-jici4kixgw
-      minReplicas: -@minReplicas@-
-      maxReplicas: -@maxReplicas@-
-      cpu: -@cpuAutoScale@-
+      minReplicas: 1
+      maxReplicas: 1
+      cpu: 70
       memory: -@memAutoScale@-
     port: 6379
     resource:
       request:
-        memory: -@requestMemory@-
-        cpu: -@requestCpu@-
+        memory: 250Mi
+        cpu: 0.25
     volume:
       name: redis-service-1-jici4kixgw
   service:
